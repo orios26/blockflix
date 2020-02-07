@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thmeleaf.org">
+	<head>
+		<title>BlockFlix</title>
+	</head>
+	<body>
+		<h1>Home page with Thymeleaf</h1>
+		<p>Welcome to the blockflix applicaiton</p>
+		<h2>Available Categories:</h2>	
+		<ul th:each="category: ${categories}">
+			<li th:text="${category.name}"></li>
+		</ul>
+	</body>
+</html>
