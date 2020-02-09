@@ -21,40 +21,13 @@ import javax.persistence.Version;
 
 @Entity(name="film")
 public class Film implements Serializable {
-
-    /** Primary key. */
-    protected static final String PK = "filmId";
-
-    /**
-     * The optimistic lock. Available via standard bean get/set operations.
-     */
-    @Version
-    @Column(name="LOCK_FLAG")
-    private Integer lockFlag;
-
-    /**
-     * Access method for the lockFlag property.
-     *
-     * @return the current value of the lockFlag property
-     */
-    public Integer getLockFlag() {
-        return lockFlag;
-    }
-
-    /**
-     * Sets the value of the lockFlag property.
-     *
-     * @param aLockFlag the new value of the lockFlag property
-     */
-    public void setLockFlag(Integer aLockFlag) {
-        lockFlag = aLockFlag;
-    }
-
-    @Id
+	 
+	private static final long serialVersionUID = 8832602713219821470L;
+	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="film_id", unique=true, nullable=false, precision=10)
     private int filmId;
-    @Column(nullable=false, length=255)
+    @Column(name="title", nullable=false, length=255)
     private String title;
     private String description;
     @Column(name="release_year", length=10)
@@ -70,10 +43,10 @@ public class Film implements Serializable {
     private String rating;
     @Column(name="last_update", nullable=false)
     private Timestamp lastUpdate;
-    @Column(name="special_features")
-    private String[] specialFeatures;
-    @Column(nullable=false)
-    private String fulltext;
+//    @Column(name="special_features")
+//    private String[] specialFeatures;
+//    @Column(nullable=false)
+//    private String fulltext;
     @OneToMany(mappedBy="film")
     private Set<FilmActor> filmActor;
     @OneToMany(mappedBy="film")
@@ -269,41 +242,41 @@ public class Film implements Serializable {
         lastUpdate = aLastUpdate;
     }
 
-    /**
-     * Access method for specialFeatures.
-     *
-     * @return the current value of specialFeatures
-     */
-    public String[] getSpecialFeatures() {
-        return specialFeatures;
-    }
-
-    /**
-     * Setter method for specialFeatures.
-     *
-     * @param aSpecialFeatures the new value for specialFeatures
-     */
-    public void setSpecialFeatures(String[] aSpecialFeatures) {
-        specialFeatures = aSpecialFeatures;
-    }
-
-    /**
-     * Access method for fulltext.
-     *
-     * @return the current value of fulltext
-     */
-    public String getFulltext() {
-        return fulltext;
-    }
-
-    /**
-     * Setter method for fulltext.
-     *
-     * @param aFulltext the new value for fulltext
-     */
-    public void setFulltext(String aFulltext) {
-        fulltext = aFulltext;
-    }
+//    /**
+//     * Access method for specialFeatures.
+//     *
+//     * @return the current value of specialFeatures
+//     */
+//    public String[] getSpecialFeatures() {
+//        return specialFeatures;
+//    }
+//
+//    /**
+//     * Setter method for specialFeatures.
+//     *
+//     * @param aSpecialFeatures the new value for specialFeatures
+//     */
+//    public void setSpecialFeatures(String[] aSpecialFeatures) {
+//        specialFeatures = aSpecialFeatures;
+//    }
+//
+//    /**
+//     * Access method for fulltext.
+//     *
+//     * @return the current value of fulltext
+//     */
+//    public String getFulltext() {
+//        return fulltext;
+//    }
+//
+//    /**
+//     * Setter method for fulltext.
+//     *
+//     * @param aFulltext the new value for fulltext
+//     */
+//    public void setFulltext(String aFulltext) {
+//        fulltext = aFulltext;
+//    }
 
     /**
      * Access method for filmActor.
@@ -441,10 +414,10 @@ public class Film implements Serializable {
      *
      * @return Map of key names to values
      */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("filmId", Integer.valueOf(getFilmId()));
-        return ret;
-    }
+//    public Map<String, Object> getPrimaryKey() {
+//        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
+//        ret.put("filmId", Integer.valueOf(getFilmId()));
+//        return ret;
+//    }
 
 }

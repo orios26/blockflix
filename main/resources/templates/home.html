@@ -8,8 +8,8 @@
 		<h1>Home page with Thymeleaf</h1>
 		<p>Welcome to the blockflix applicaiton</p>
 		<h2>Available Categories:</h2>	
-		<ul th:each="category: ${categories}">
-			<li th:text="${category.name}"></li>
-		</ul>
 	</body>
+	<ul th:each="category: ${categories}">
+			<a th:href="@{'/category/' + ${category.categoryId}}"><p th:text="${category.name}"></p></a>
+	</ul>
 </html>

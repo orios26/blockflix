@@ -19,35 +19,8 @@ import javax.persistence.Version;
 @Entity
 public class Category implements Serializable {
 
-    /** Primary key. */
-    protected static final String PK = "categoryId";
-
-//    /**
-//     * The optimistic lock. Available via standard bean get/set operations.
-//     */
-//    @Version
-//    @Column(name="LOCK_FLAG")
-//    private Integer lockFlag;
-//
-//    /**
-//     * Access method for the lockFlag property.
-//     *
-//     * @return the current value of the lockFlag property
-//     */
-//    public Integer getLockFlag() {
-//        return lockFlag;
-//    }
-//
-//    /**
-//     * Sets the value of the lockFlag property.
-//     *
-//     * @param aLockFlag the new value of the lockFlag property
-//     */
-//    public void setLockFlag(Integer aLockFlag) {
-//        lockFlag = aLockFlag;
-//    }
-
-    @Id
+	private static final long serialVersionUID = 341758579345118116L;
+	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="category_id", unique=true, nullable=false, precision=10)
     private int categoryId;
@@ -199,10 +172,10 @@ public class Category implements Serializable {
      *
      * @return Map of key names to values
      */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("categoryId", Integer.valueOf(getCategoryId()));
-        return ret;
-    }
+//    public Map<String, Object> getPrimaryKey() {
+//        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
+//        ret.put("categoryId", Integer.valueOf(getCategoryId()));
+//        return ret;
+//    }
 
 }

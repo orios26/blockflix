@@ -17,34 +17,13 @@ import javax.persistence.Version;
 @Entity(name="film_category")
 public class FilmCategory implements Serializable {
 
-    /** Primary key. */
-    protected static final String PK = "FilmCategoryFilmCategoryPkey";
-
-    /**
-     * The optimistic lock. Available via standard bean get/set operations.
-     */
-    @Version
-    @Column(name="LOCK_FLAG")
-    private Integer lockFlag;
-
-    /**
-     * Access method for the lockFlag property.
-     *
-     * @return the current value of the lockFlag property
-     */
-    public Integer getLockFlag() {
-        return lockFlag;
-    }
-
-    /**
-     * Sets the value of the lockFlag property.
-     *
-     * @param aLockFlag the new value of the lockFlag property
-     */
-    public void setLockFlag(Integer aLockFlag) {
-        lockFlag = aLockFlag;
-    }
-    
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -900074550598588982L;
+	//    /** Primary key. */
+//    protected static final String PK = "FilmCategoryFilmCategoryPkey";
+//    
     @EmbeddedId
     private FilmCategoryID filmCategoryID;
     @Column(name="last_update", nullable=false)
@@ -255,11 +234,11 @@ public class FilmCategory implements Serializable {
      *
      * @return Map of key names to values
      */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("filmFilmId", Integer.valueOf(getFilmFilmId()));
-        ret.put("categoryCategoryId", Integer.valueOf(getCategoryCategoryId()));
-        return ret;
-    }
+//    public Map<String, Object> getPrimaryKey() {
+//        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
+//        ret.put("filmFilmId", Integer.valueOf(getFilmFilmId()));
+//        ret.put("categoryCategoryId", Integer.valueOf(getCategoryCategoryId()));
+//        return ret;
+//    }
 
 }

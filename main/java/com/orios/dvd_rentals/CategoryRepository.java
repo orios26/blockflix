@@ -7,4 +7,5 @@ import rentals.Category;
 
 @Repository
 public interface CategoryRepository extends CrudRepository <Category, Integer> {
+
 }
