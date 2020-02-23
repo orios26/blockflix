@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thmeleaf.org">
+	<head>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" th:src="@{/javascripts/actors.js}"></script>
+		<title>BlockFlix</title>
+	</head>
+	<body>
+		<h1>Home page with Thymeleaf</h1>
+		<p>Welcome to the blockflix applicaiton</p>
+		<h2>All Actors</h2>	
+		<ul th:each="actor: ${actors}">
+			<a th:href="@{'/actor/' + ${actor.actorId}}"><p th:text="${actor.firstName} + ' ' + ${actor.lastName}"></p></a>
+		</ul>
+		
+		
+		<button id="0" class="pagination" type="button"><<</button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button class="pagination pagnination-dynamic" type="button"></button>
+		<button th:id="${finalPage}" class="pagination" type="button">>></button>
+	</body>
+
+</html>

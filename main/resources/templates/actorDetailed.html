@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thmeleaf.org">
+	<head>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<title>BlockFlix</title>
+	</head>
+	<body>
+		<h1>Home page with Thymeleaf</h1>
+		<p>Welcome to the blockflix applicaiton</p>
+		<h2>Actor Details</h2>	
+		<div class="detail banner">
+			<h3 th:text="${actor.firstName} + ' ' + ${actor.lastName}"></h3>
+		</div>
+
+		<ul th:each="film: ${films}">
+			<a th:href="@{'/film/' + ${film.filmId}}"><p th:text="${film.title}"></a>
+		</ul>
+	</body>
+
+</html>
