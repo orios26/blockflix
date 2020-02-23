@@ -51,7 +51,7 @@ public class ActorController {
 	}
 	
 	@GetMapping("/{id}")
-	public String getActorDetailed(@PathVariable("id") Integer id, Model model) {
+	public String getActorById(@PathVariable("id") Integer id, Model model) {
 		Optional<Actor> actor = actorService.findById(id);
 		if(actor.isPresent()) {
 			model.addAttribute("actor", actor.get());

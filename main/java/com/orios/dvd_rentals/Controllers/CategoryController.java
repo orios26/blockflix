@@ -31,8 +31,15 @@ public class CategoryController {
 	@Autowired
 	private FilmService filmService;
 	
+	@GetMapping()
+	public String getAllCategories(Model model) {
+		final List<Category> categories = categoryService.findAll();
+		model.addAttribute("categories", categories);
+		return "home";
+	}
+	
 	@GetMapping("/{id}")
-	public String getCategory(@PathVariable("id") Integer id, Model model, Pageable pageable) {
+	public String getCategoryById(@PathVariable("id") Integer id, Model model, Pageable pageable) {
 		Optional<Category> category = categoryService.findById(id);
 		if(category.isPresent()) {
 			model.addAttribute("category", category.get());

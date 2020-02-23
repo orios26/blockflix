@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html th:fragment="header">
 	<header>
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 		<title>BlockFlix</title>
 	</header>
-	<div class="search-bar" th:fragment="header">
+	<div class="search-bar">
 		<form action="">
 			<input type="text" placeholder="Search..." name="search">
 			<button type="submit">Search</button>
 		</form>
 	</div>
-
+	<div class="navigation">
+		<a th:href="@{/category}">Categories</a>
+		<a th:href="@{/film}">Films</a>
+		<a th:href="@{/actor}">Actors</a>
+	</div>
 </html>

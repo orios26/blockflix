@@ -14,18 +14,9 @@ import rentals.Category;
 
 @Controller
 public class HomeController {
-	
-	@Autowired
-	private CategoryService categoryService;
-	
+		
 	@GetMapping("/")
-	public String home(Model model) {
-		final List<String> categoryNames = new ArrayList<>();
-		final List<Category> categories = categoryService.findAll();
-		categories.forEach(c -> {
-			categoryNames.add(c.getName());
-		});
-		model.addAttribute("categories", categories);
-		return "home";
+	public String home() {
+		return "redirect:/category";
 	}
 }

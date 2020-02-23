@@ -25,6 +25,11 @@ public class FilmController {
 	@Autowired 
 	private ActorService actorService;
 	
+	@GetMapping()
+	public String getAllFilms(Model model) {
+		return "films";
+	}
+	
 	@GetMapping("/{id}")
 	public String getFilmById(@PathVariable("id") Integer id, Model model){
 		final Optional<Film> film = filmService.getFilmById(id);
@@ -33,6 +38,6 @@ public class FilmController {
 			final List<Actor> filmCast = actorService.findActorsByFilmId(id);
 			model.addAttribute("actors", filmCast);
 		}
-		return "film";
+		return "filmDetailed";
 	}
 }
